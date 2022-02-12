@@ -1,5 +1,5 @@
 // /api/thoughts
-const {Thought, Reaction} = require ('../models')
+const {Thought, User} = require ('../models')
 
 // GET to get all thoughts
 
@@ -43,12 +43,19 @@ const thoughtController = {
         });
     },
   
-    // createThought
-    createThought({ body }, res) {
-      Thought.create(body)
-        .then(dbThoughtData => res.json(dbThoughtData))
-        .catch(err => res.json(err));
-    },
+    // createThought & add comment to User's thought array
+  createThought({ body }, res) {
+    Thought.create(body)
+      .then(({ _id }) => {
+        return User.findOneAndUpdate(
+          { _id: body.userId },
+          { $push: { thoughts: _id } },
+          { new: true }
+        );
+      })
+      .then(dbThoughtData => res.json(dbThoughtData))
+      .catch(err => res.json(err));
+  },
   
     // update thought by id
     updateThought({ params, body }, res) {
