@@ -5,12 +5,13 @@ const userController = {
     // get all users
     getAllUsers(req, res) {
       User.find({})
+      .populate({path: 'friends'})
         .populate({
-          path: 'thoughts', //and friends?
+          path: 'thoughts',
           select: '-__v'
         })
         .select('-__v')
-        // .sort({ _id: -1 })
+        .sort({ _id: -1 })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
           console.log(err);
@@ -58,7 +59,35 @@ const userController = {
       User.findOneAndDelete({ _id: params.id })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.json(err));
-    }
+    },
+
+ //adds a User to users's friend array
+ addFriend({ params, body }, res) {
+  User.findOneAndUpdate(
+    { _id: params.userId },
+    { $push: { friends: { friendId: params.friendId }  } },
+    { new: true, runValidators: true }
+  )
+    .then(dbFriendData => {
+      if (!dbFriendData) {
+        res.status(404).json({ message: 'No user found with this id!' });
+        return;
+      }
+      res.json(dbFriendData);
+    })
+    .catch(err => res.json(err));
+},
+ // remove friend
+ removeFriend({ params }, res) {
+  User.findOneAndUpdate(
+    { _id: params.userId },
+    { $pull: { friends: { friendId: params.friendId } } },
+    { new: true }
+  )
+    .then(dbFriendData => res.json(dbFriendData))
+    .catch(err => res.json(err));
+}
+
   };
   
 

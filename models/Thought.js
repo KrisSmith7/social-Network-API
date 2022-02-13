@@ -17,16 +17,15 @@ const thoughtSchema = new Schema(
         type: String,
         required: true
       },
-      // use ReplySchema to validate data for a reply
       reactions: [reactionSchema]
     },
-    // {
-    //   toJSON: {
-    //     virtuals: true,
-    //     getters: true
-    //   },
-    //   id: false
-    // }
+    {
+      toJSON: {
+        virtuals: true,
+        getters: true
+      },
+      id: false
+    }
   );
   
   thoughtSchema.virtual('reactionCount').get(function() {
