@@ -1,6 +1,3 @@
-//username
-//email
-// thoughts - array of _id values ref thought model
 // friends - array of _id values ref user model (self reference)
 const { Schema, model } = require('mongoose');
 
