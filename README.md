@@ -22,7 +22,7 @@
 [Demo of thought routes](https://watch.screencastify.com/v/AhNsi4dkuAVntTcIvHRz)
 [Demo of reaction routes](https://watch.screencastify.com/v/DuBY9H8QdlUjtsi37daO)
 
-![animation of application](assets\images\insomnia.gif)
+![animation of application](.\assets\images\insomnia.gif)
 
 
   ## Contributing
