@@ -16,13 +16,13 @@
   ## Usage
    Examples of the application can be found in the following links.
   
-[Demo of starting server](https://watch.screencastify.com/v/5LsdzpxelWYBVGlv6JEE)
-[Demo of user routes](https://watch.screencastify.com/v/3zMXU2fFJeaxE3zDnGt2)
-[Demo of friend routes](https://watch.screencastify.com/v/imbVJwKbcpa3lVCXBU80)
-[Demo of thought routes](https://watch.screencastify.com/v/AhNsi4dkuAVntTcIvHRz)
+[Demo of starting server](https://watch.screencastify.com/v/5LsdzpxelWYBVGlv6JEE)\
+[Demo of user routes](https://watch.screencastify.com/v/3zMXU2fFJeaxE3zDnGt2)\
+[Demo of friend routes](https://watch.screencastify.com/v/imbVJwKbcpa3lVCXBU80)\
+[Demo of thought routes](https://watch.screencastify.com/v/AhNsi4dkuAVntTcIvHRz)\
 [Demo of reaction routes](https://watch.screencastify.com/v/DuBY9H8QdlUjtsi37daO)
 
-![animation of application](.\assets\images\insomnia.gif)
+![animation of application](assets\images\insomnia.gif)
 
 
   ## Contributing
